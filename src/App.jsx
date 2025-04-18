@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import ThemeToggle from './components/ThemeToggle';
+import reactLogo from './assets/react.svg';
 
 function App() {
   const [todos, setTodos] = useState(() => {
@@ -78,16 +79,19 @@ function App() {
       }`}>
         <ThemeToggle darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         
-        <h1 className={`text-3xl font-bold text-center mb-2 ${
-          darkMode ? 'text-white' : 'text-gray-800'
-        }`}>
-          Todo List
-        </h1>
-        <p className={`text-center mb-6 ${
-          darkMode ? 'text-gray-300' : 'text-gray-600'
-        }`}>
-          {formattedDate}
-        </p>
+        <div className="flex flex-col items-center mb-6">
+          <img src={reactLogo} className="h-16 w-16 mb-2 animate-spin-slow" alt="React logo" style={{ animationDuration: '10s' }} />
+          <h1 className={`text-3xl font-bold text-center mb-2 ${
+            darkMode ? 'text-white' : 'text-gray-800'
+          }`}>
+            React Todo
+          </h1>
+          <p className={`text-center ${
+            darkMode ? 'text-gray-300' : 'text-gray-600'
+          }`}>
+            {formattedDate}
+          </p>
+        </div>
         
         <TodoForm addTodo={addTodo} darkMode={darkMode} />
         
